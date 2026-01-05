@@ -25,7 +25,7 @@ This project was built to better understand the limitations of large language mo
 
 The project demonstrates that preventing hallucinations is not only a prompt-writing problem but also a system design problem. By introducing explicit evidence checks and refusing unsupported questions, the overall behavior becomes more trustworthy.
 
-Limitations
+Limitations::
 
 The retrieval mechanism is intentionally simple and relies on keyword overlap rather than embeddings. This makes the system easy to understand but less accurate for large or complex documents. Performance is also limited by CPU-based inference, especially during the first startup when the model is loaded.
 
