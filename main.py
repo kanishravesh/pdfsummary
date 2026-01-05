@@ -27,7 +27,7 @@ def answer_question(context: str, question: str) -> str:
             pad_token_id=tokenizer.eos_token_id
         )
 
-    # Decode only newly generated tokens
+
     new_tokens = output[0][len(inputs.input_ids[0]):]
     answer = tokenizer.decode(new_tokens, skip_special_tokens=True)
 

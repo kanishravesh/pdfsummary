@@ -4,9 +4,7 @@ from memory import chunk_text, retrieve_relevant_chunks, has_evidence
 from model import tokenizer, model
 import torch
 
-# --------------------------------------------------
-# Answer generation (grounded)
-# --------------------------------------------------
+
 
 def answer_question(context: str, question: str) -> str:
     prompt = (
@@ -35,9 +33,7 @@ def answer_question(context: str, question: str) -> str:
     return tokenizer.decode(new_tokens, skip_special_tokens=True).strip()
 
 
-# --------------------------------------------------
-# Gradio pipeline
-# --------------------------------------------------
+
 
 stored_chunks = []
 
@@ -64,16 +60,14 @@ def ask_question(question):
     return answer_question(context, question)
 
 
-# --------------------------------------------------
-# Gradio UI
-# --------------------------------------------------
+
 
 with gr.Blocks(title="PDF Question Answering (Local LLM)") as demo:
     gr.Markdown(
         """
-        ## 📄 PDF Question Answering (Local, Grounded)
+        ##  PDF Question Answering
         Upload a PDF and ask questions.
-        Answers are generated **only from the document**.
+        Answers are generated only from the document provided to system.
         """
     )
 
